@@ -1,0 +1,88 @@
+.certCard{
+    display: flex;
+    cursor: pointer;
+    width: 70%;
+    
+    border-radius: 12px;
+    transition: all ease-in-out 0.2s;
+}
+.certCardDiv{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    margin: 4% 3%;
+}
+.certiLeft img {
+    width: 68px;
+}
+.sno, .certiLeft, .certiNameSide, .menuBtn{
+    padding: 0.1% 4%;
+
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.certCard:hover{
+    background-color: #F4F6FA;
+
+}
+.menuBtn i{
+    background-color: #E9EDF8;
+    /* color: rgb(29, 93, 214); */
+    border-radius: 5px;
+    width: 27px;
+    height: 27px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.certiMenu ul a {
+    text-decoration: none;
+    color: white;
+    list-style: none;
+    font-weight: 400;
+    /* right: 25%; */
+    position: relative;
+    /* padding-top: 4%; */
+}
+.certiMenu ul a li {
+    /* padding: 12% 42%; */
+    padding: 8% 0%;
+    /* text-align: center; */
+}
+.certiMenu {
+    position: absolute;
+    z-index: 3;
+    margin-top: 5%;
+    margin-left: 6%;
+
+}
+
+.certiMenu ul{
+    top: 56px;
+    opacity: 0;
+    transition: all ease-out 0.2s;
+    transform: translate(-82px, -25px);
+    border-radius: 9px;
+    /* right: 62px; */
+    right: 37%;
+    position: relative;
+    background-color: #232323;
+    /* color: white; */
+    width: 115px;
+    text-align: center;
+}
+.menuBtn{
+    padding: 0.1% 5%;
+}
+
+.certiList{
+    /* top: -107px; */
+    /* margin: -94px; */
+    position: relative;
+    padding: 0;
+}

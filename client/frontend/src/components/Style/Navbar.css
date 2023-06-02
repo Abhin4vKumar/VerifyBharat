@@ -1,0 +1,82 @@
+.navLi{
+    list-style: none;
+    /* padding: 2%; */
+
+}
+.navA {
+    padding: 2% 5%;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.navUl{
+    display: flex;
+    background-color: #222;
+}
+.navBar{
+    margin: 0;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    padding: 0;
+}
+
+/* .gapNavA{
+    width: 50%;
+} */
+
+.leftNavSide{
+    flex: 8 1 auto;
+    display: flex;
+    padding-left: 5%;
+}
+.rightNavSide {
+    flex: 1 1 auto;
+    display: flex;
+}
+
+.accountListUl li{
+    /* color: white; */
+    list-style: none;
+    padding: 5%;
+    text-align: center;
+    /* text-align: left; */
+}
+
+.accountListUl {
+    background-color: white;
+    height: 75px;
+    padding: 1%;
+    width: 95px;
+    border-radius: 12px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.accountList{
+    position: absolute;
+    top: 4%;
+    padding: 2%;
+    right: 4%;
+    opacity: 0;
+    transform: translateY(-14px);
+    transition: all ease-out 0.2s;
+    cursor: pointer;
+}
+.accountListA{
+    text-decoration: none;
+    color: #232323;
+    font-weight: 600;
+}
+
+.logo{
+    height: 77px;
+    width: auto;
+    padding-right: 11%;
+}
+
+.logoLi {
+    display: flex;
+    align-items: center;
+}
