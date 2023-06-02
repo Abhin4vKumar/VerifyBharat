@@ -1,0 +1,175 @@
+/* .certCard{
+    display: flex;
+    cursor: pointer;
+    width: 70%;
+    
+    border-radius: 12px;
+    transition: all ease-in-out 0.2s;
+}
+
+
+.certCard:hover{
+    background-color: #F4F6FA;
+
+} */
+
+
+.certCard {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    margin: 1% auto;
+    /* display: flex; */
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: 1px solid ;
+    width: 70%;
+
+    border-radius: 12px;
+    transition: all ease-in-out 0.2s;
+    font-weight: bold;
+
+
+}
+
+.certCard:hover {
+    background-color: white;
+}
+.certCard:active {
+    background-color: rgb(235, 235, 235);
+}
+
+
+.certCardDiv {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    margin: 4% auto;
+    width: 93%;
+}
+.certiLeft img {
+    width: 68px;
+}
+.sno, .certiLeft, .certiNameSide, .menuBtn{
+    padding: 0.1% 4%;
+
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.menuBtn i{
+    background-color: #E9EDF8;
+    /* color: rgb(29, 93, 214); */
+    border-radius: 5px;
+    width: 27px;
+    height: 27px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.certiMenu ul a {
+    text-decoration: none;
+    color: white;
+    list-style: none;
+    font-weight: 400;
+    /* right: 25%; */
+    position: relative;
+    /* padding-top: 4%; */
+}
+.certiMenu ul a li {
+    /* padding: 12% 42%; */
+    padding: 8% 0%;
+    /* text-align: center; */
+}
+.certiMenu {
+    position: absolute;
+    z-index: 3;
+    margin-top: 5%;
+    margin-left: 6%;
+
+}
+
+.certiMenu ul{
+    top: 56px;
+    opacity: 0;
+    transition: all ease-out 0.2s;
+    transform: translate(-82px, -25px);
+    border-radius: 9px;
+    /* right: 62px; */
+    right: 37%;
+    position: relative;
+    background-color: #232323;
+    /* color: white; */
+    width: 115px;
+    text-align: center;
+}
+.menuBtn{
+    padding: 0.1% 5%;
+}
+
+.certiList {
+    width: 88%;
+    /* top: -107px; */
+    /* margin: -94px; */
+    position: relative;
+    height: 100vh;
+    margin-left: 12%;
+
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.inputAdd{
+    display: flex;
+    flex-direction: column;
+}
+
+.popUpWindowDash {
+    background-color: white;
+    /* border: 2px solid; */
+    position: fixed;
+    top: 45vh;
+    left: 45%;
+    display: flex;
+    flex-direction: column;
+    padding: 4%;
+    margin: auto;
+    justify-content: center;
+    border-radius: 19px;
+    align-items: center;
+}
+.inpWindowPopUpDiv{
+    display: flex;
+    justify-content: center;
+}
+.inpWindowPopUp{
+    border: 1px solid;
+    width: 89%;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* padding: 1% 0%; */
+    /* align-items: center; */
+    /* text-align: center; */
+    padding: 1% 0%;
+    width: 154px;
+    flex-direction: roe;
+}
+
+.popBack{
+    background-color: #232323;
+    position: fixed;
+    width: 100%;
+    height: 300vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+.popBack, .popUpWindowDash{
+    display: none;
+}

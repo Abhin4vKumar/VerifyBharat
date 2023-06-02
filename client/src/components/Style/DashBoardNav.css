@@ -1,0 +1,52 @@
+.dashBoardA{
+    text-decoration: none;
+    padding: 8% 8%;
+    color: #232323;
+    font-weight: bold;
+}
+.dashBoardLi{
+    list-style: none;
+}
+.dashBoardUl{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.leftSideDash {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    margin-top: 29%;
+}
+.rightSideDash{
+    display: flex;
+    flex:0.3 1 auto;
+    flex-direction: column;
+    justify-content: center;
+}
+.dashBoardNav{
+    background-color: #edebeb;
+    
+}
+
+.dashBoardNavDiv {
+    top: 76px;
+    width: 12%;
+    position: fixed;
+    /* left: 0; */
+    height: 0vh;
+}
+
+.leftPreviewCert{
+    display: flex;
+    padding: 0% 2%;
+}
+.leftPreviewCertBtn{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+
+}
+.dashBoardA:hover{
+    background-color: white;
+}
