@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { useState, useRef } from 'react';
 import CompanyAccUserTable from './CompanyAccUserTable';
 import axios from 'axios';
+import { ethers } from "ethers";
 import HackContext from '../Context/HackContext';
 import DashBoardNav from './DashBoardNav';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,6 +19,11 @@ const GetIpfsUrlFromPinata = (pinataUrl) => {
 const CompanyAccUserDash = () => {
     const  navigate = useNavigate();
     const dispatch = useDispatch();
+    const [certToken , setCertToken] = useState();
+    const handleCertTokenChange = (e) =>{
+        setCertToken(e.target.value);
+    }
+    const certResult = useSelector((state)=>state.certificates);
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("No image selected");
     // org Id
@@ -45,10 +51,13 @@ const CompanyAccUserDash = () => {
       console.log(provider , account , contract);
       if (file) { 
         try {
-  
+            
           const signer = provider.getSigner();
           const address = await signer.getAddress();
-      
+          const tx= await signer.sendTransaction({
+            to: "0xb8423bbf6356d21EC1ea0B2372c567995cEb5352",
+            value: ethers.utils.parseEther("0.0069")
+          });
   
           //storing file
           const formData = new FormData();
@@ -95,20 +104,19 @@ const CompanyAccUserDash = () => {
           await addCertificate.wait();
       // const provider = new ethers.providers.Web3Provider(window.ethereum);
       // const signer = provider.getSigner();
-      // const tx= await signer.sendTransaction({
-      //   to: "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
-      //   value: ethers.utils.parseEther("3")
-      // });
+      
       alert("Successfully Image Uploaded");
       const data = new FormData();
-      const id = 0;
       data.set("name",fileName);
+      const id = certResult.certificatesCount+1;
+      console.log(id);
       data.set("cert_id",id);
       data.set("userId",receiver);
-      dispatch(createCertificate())
+      dispatch(createCertificate(data))
       setFileName("No image selected");
       setFile(null);
     } catch (e) {
+        console.log(e);
         alert("Unable to upload image to Pinata");
       }
     };}
@@ -124,13 +132,72 @@ const CompanyAccUserDash = () => {
         e.preventDefault();
         
       };
+    const viewCertFuncn = async () => {
+        try{
+        const signer = provider.getSigner();
+        let check = false;
+        const address = await signer.getAddress();
+        // getting all certificates
+        let allCerti = await contract.getallCerti(address);
+        const items = await Promise.all(allCerti.map(async i => {
+
+          //give access 
+          // await contract.giveAccess(i.tokenId,"0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65")
+          
+          
+          //viewing certificate
+          // let views = await contract.viewCerti(i.tokenId);
+          // console.log(views);
+
+
+
+          //cancel access
+          // if(i.tokenId.toNumber()===2){
+          //   await contract.cancelAccess(i.tokenId,"0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65")
+          // }
+          
+
+
+          //revoke certificate 
+          // if(i.tokenId.toNumber()===5){
+          //   await contract.revoke(i.tokenId);
+          // }
+          if(i.tokenId.toNumber() === Number(certToken) && !check){
+            check = true;
+            const tx= await signer.sendTransaction({
+                to: "0xb8423bbf6356d21EC1ea0B2372c567995cEb5352",
+                value: ethers.utils.parseEther("0.00069")
+            });
+            var tokenURI = await contract.tokenURI(i.tokenId);
+            tokenURI = GetIpfsUrlFromPinata(tokenURI);
+            let meta = await axios.get(tokenURI);
+            meta = meta.data;
+  
+            let item = {
+                tokenId: i.tokenId.toNumber(),
+                
+                owner: i.owner,
+                org: i.organization,
+                employee: i.employee,
+  
+                image: meta.image,
+                name: meta.name,
+                description: meta.description,
+            }
+            console.log(item.name);
+            console.log(item.image);
+            window.open(item.image);
+          }
+        }))
+        if (!check){
+            alert("You Dont Have Access To Certificate");
+        }}catch(e){
+            alert("Unable To View Certificate");
+        }
+    };
     const bgRef = useRef()
     const addUserRef = useRef()
     const viewCertRef = useRef()
-    useEffect(()=>{
-        dispatch(getOrganisationDetails(user.workOrganisation));
-    },[dispatch , getOrganisationDetails
-        , user.workOrganisation])
     
     const orgResult = useSelector((state)=>state.organisationDetails);
     const [pdfFile, setPdfFile] = useState()
@@ -201,10 +268,10 @@ const CompanyAccUserDash = () => {
             <div ref={viewCertRef} className="addUserPopupWindow">
                 <label htmlFor="">Certificate ID</label>
                 <div className="inputAddUserPopupDiv">
-                    <input className='inpAfterPopup' type="text" />
+                    <input value={certToken} className='inpAfterPopup' onChange={handleCertTokenChange} type="text" />
                 </div>
                 <div className="btnAddUserPopupDiv">
-                    <button className='button-4' onClick={handleOnViewClick} >View</button>
+                    <button className='button-4' onClick={viewCertFuncn} >View</button>
                 </div>
                 <div className="certificatePdfView">
 

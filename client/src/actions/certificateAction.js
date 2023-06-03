@@ -82,6 +82,7 @@ export const createCertificate = (productData) => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
+    console.log("error : ",error);
     dispatch({
       type: NEW_CERTIFICATE_FAIL,
       payload: error.response.data.message,
