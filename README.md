@@ -31,13 +31,13 @@
 - Front-end of our Web-App is made with [React.Js](https://github.com/facebook/create-react-app) and our complete frontend components are available at 
       https://github.com/Abhin4vKumar/VerifyBharat
 <p align="center">
- ![image](https://github.com/redhairrs/hack/assets/86844932/b669d714-ff2f-4d64-9ff8-da0107d558da)
+ <img src="https://github.com/redhairrs/hack/assets/86844932/b669d714-ff2f-4d64-9ff8-da0107d558da">
 </p>
 - It create Multi-Sig Wallets for every student where both Student and his/her Institute is Owner.<br>
 - We are using Browser Extension to work with Ethereum.
  <br>
   <p align="center">
-    ![image](https://github.com/redhairrs/hack/assets/86844932/9bd51a6d-1793-4409-a751-3c8cca61b026)
+   <img src="https://github.com/redhairrs/hack/assets/86844932/9bd51a6d-1793-4409-a751-3c8cca61b026">
  </p>
 
 ## How to Use
@@ -47,7 +47,7 @@
   - Login as `Student`
   - Login as `Institute`
 <p align="center">
-    ![image](https://github.com/redhairrs/hack/assets/86844932/f850778e-efa7-4cc9-886f-d844c1df0ccc)
+ <img src="https://github.com/redhairrs/hack/assets/86844932/f850778e-efa7-4cc9-886f-d844c1df0ccc">
 </p>
  - Upon First Signup `Metamask` will ask permission to connect your wallet with App.
 
@@ -55,7 +55,7 @@
 
  #### Student Dashboard
  <p align="center">
-   ![image](https://github.com/redhairrs/hack/assets/86844932/080e6a9b-920b-42f2-9a69-29853da3ff69)
+  <img src="https://github.com/redhairrs/hack/assets/86844932/080e6a9b-920b-42f2-9a69-29853da3ff69">
 </p>   
  
 - Student Dashboard have these options :
