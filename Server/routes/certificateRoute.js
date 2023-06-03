@@ -6,7 +6,7 @@ const router = express.Router();
 
 // router.route("/certificates").get(isAuthenticatedUser,getAllRequests);
 router.route("/myCertificates").get(isAuthenticatedUser , getMyCertificates);
-router.route("/certificate/new").post(isAuthenticatedOrganisation, newCertificate);
+router.route("/certificate/new").post(isAuthenticatedUser, newCertificate);
 router.route("/certificate/Access/share").put(isAuthenticatedUser, shareAccess);
 router.route("/certificate/Access/revoke").put(isAuthenticatedUser, revokeAccess);
 router.route("/certificate/revoke").delete(isAuthenticatedOrganisation, revokeCertificate);

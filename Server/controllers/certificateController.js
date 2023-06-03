@@ -7,8 +7,8 @@ const ApiFeatures = require("../utils/apiFeatures");
 
 
 exports.newCertificate = catchAsyncErrors(async (req, res, next) => {
-    const user = await User.findById(req.body.userId);
-    const org = await Organisation.findById(req.user._id);
+    const user = await User.findOne({acc_no:req.body.userId});
+    const org = await Organisation.findById(req.user.workOrganisation);
     if (!user) {
         return next(new ErrorHandler(`User does not exist with Id: ${req.body.userId}`));
     }
@@ -16,12 +16,12 @@ exports.newCertificate = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler(`Organisation does not exist with Id: ${req.params.id}`));
     }
     const userObj = {
-        user_id:req.body.userId,
+        user_id:user._id,
         acc_no:user.acc_no
     }
     const organisationObj = {
-        name:user.name,
-        org_id:req.user._id,
+        name:org.name,
+        org_id:org._id,
         acc_no:org.acc_no
     }
     req.body.user = userObj;
