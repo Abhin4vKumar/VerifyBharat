@@ -31,7 +31,8 @@ const Navbar = () => {
       const address = await signer.getAddress();
       setAccount(address);
       console.log(address);
-      let contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+      // let contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+      let contractAddress = "0xa827469A3b351334d1d333CE771a6eFd96f7F28B";
 
       const contract = new ethers.Contract(contractAddress, Upload.abi, signer);
       //console.log(contract);
