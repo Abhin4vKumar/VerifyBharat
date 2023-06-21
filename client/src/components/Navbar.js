@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Style/Navbar.css";
 import { useRef } from "react";
 import { useContext } from "react";
 import HackContext from "../Context/HackContext";
 import Upload from "../artifacts/contracts/Upload.sol/Upload.json";
 import { ethers } from "ethers";
-import {useAlert} from 'react-alert';
+import { useAlert } from 'react-alert';
 import Logo from "./stock/Logo.svg"
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import LinkOfNavbar from "./LinkOfNavbar";
 
 const Navbar = () => {
+
+  const handleOnLinkMouseOverNav = () => {
+
+  }
+  const [colorOfStatus, setColorOfStatus] = useState()
   const alert = useAlert();
   const context = useContext(HackContext);
   const { account, setAccount, setContract, setProvider, navLi } = context;
-  const {loading , isAuthenticated , user} = useSelector((state)=>state.user);
+  const { loading, isAuthenticated, user } = useSelector((state) => state.user);
   async function connectWebsite() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     if (provider) {
@@ -32,7 +38,8 @@ const Navbar = () => {
       setAccount(address);
       console.log(address);
       // let contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-      let contractAddress = "0xa827469A3b351334d1d333CE771a6eFd96f7F28B";
+      let contractAddress = "0x4054ee6a899564b6dB08daF1287B7CDFA2bd8100";
+      // "0xa827469A3b351334d1d333CE771a6eFd96f7F28B";
 
       const contract = new ethers.Contract(contractAddress, Upload.abi, signer);
       //console.log(contract);
@@ -64,18 +71,20 @@ const Navbar = () => {
           <div className="leftNavSide">
             <Link to="/" className="navA logoA" href="">
               <li className="navLi logoLi ">
-                <img className="logo" style={{width:"50px"}} src={Logo} alt="" />{" "}
+                <img className="logo" style={{ width: "50px" }} src={Logo} alt="" />{" "}
                 <div className="logoText">VerifyBharat</div>
               </li>
             </Link>
             {navLi.map((i) => {
               return (
-                <Link to={i.to} className="navA" href="">
-                  <li
-                    dangerouslySetInnerHTML={{ __html: i.name }}
-                    className="navLi"
-                  ></li>
-                </Link>
+                // <Link onMouseOver={handleOnLinkMouseOverNav} to={i.to} className="navA" href="">
+                //   <li
+                //     dangerouslySetInnerHTML={{ __html: i.name }}
+                //     className="navLi"
+                //   ></li>
+                //   <hr className="liHrNav" />
+                // </Link>
+                <LinkOfNavbar i = {i} key = {i}/>
               );
             })}
 
@@ -83,15 +92,19 @@ const Navbar = () => {
                     <Link to = "/orgdash" className='navA' href=""><li className='navLi'>Organisation</li></Link> */}
             {/* <a className='navA gapNavA' href=""><li className='navLi'></li></a> */}
           </div>
-          <div style={{    display: "flex" , alignItems: "center" }}>
-            <input className="connectWallBtn" style={{    border: "1px solid grey",color: "white",marginRight: "10px"}}
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <input className="connectWallBtn" style={{ border: "1px solid grey", color: "white", marginRight: "10px" }}
               type="button"
               onClick={connectWebsite}
               value={"Connect Wallet"}
             />
-            <p style={{ color: "white" }}>
-              {account ? "Connected" : "Not Connected"}
-            </p>
+            <div className="connectedStatusDiv">
+              <p style={{ color: "white" }}>
+                {account ? "Connected" : "Not Connected"}
+              </p>
+              <div style={{backgroundColor:account?"#00d700":"red"}} className="connectedStatusColor"></div>
+
+            </div>
           </div>
           <div
             className="rightNavSide"
@@ -111,13 +124,13 @@ const Navbar = () => {
             <div className="accountList" ref={accountDisp}>
               <ul className="accountListUl">
                 <Link to="/login" className="accountListA" href="">
-                  {!loading && isAuthenticated?<li>Dashboard</li>:<li>Login</li>}
+                  {!loading && isAuthenticated ? <li>Dashboard</li> : <li>Login</li>}
                 </Link>
-                {loading?<Link to="/login" className="accountListA" href="">
+                {loading ? <Link to="/login" className="accountListA" href="">
                   <li>Register</li>
-                </Link>:isAuthenticated?<Link to="/logout" className="accountListA" href="">
+                </Link> : isAuthenticated ? <Link to="/logout" className="accountListA" href="">
                   <li>Logout</li>
-                </Link>:<Link to="/login" className="accountListA" href="">
+                </Link> : <Link to="/login" className="accountListA" href="">
                   <li>Register</li>
                 </Link>}
               </ul>

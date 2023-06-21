@@ -126,12 +126,17 @@
 }
 .topNavCompanyItems {
   display: flex;
-  /* margin-left: 5%; */
+  flex-direction: column;
+  width: 14%;
   /* margin: 5% 22%; */
   justify-content: center;
   margin: auto;
   /* margin: 15% 0%; */
-  margin: 5% 0% 23%;
+  margin: 5% auto 23%;
+}
+
+.topNavCompanyItems div{
+  margin: 10%;
 }
 .accAddUser{
     display: flex;
@@ -154,7 +159,7 @@
     left: 35%;
     /* right: 50; */
     background-color: white;
-    height: 20vh;
+    height: 40vh;
     width: 30%;
     margin: auto;
     text-align: center;
@@ -251,4 +256,68 @@
 }
 .inpFile::file-selector-button:hover{
   background-color: rgb(240, 252, 255);
+}
+
+.selectOptionsDiv{
+  text-align: center;
+  width: 219%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+
+
+
+.form__label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(0rem);
+}
+
+.form__input {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+	margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 2px solid #222;
+  /* border-bottom: 0.3rem solid transparent; */
+  transition: all 0.3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-1rem);
+  transform: translateY(-2rem);
+}
+
+.form__label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(0rem);
+}
+.uploadFileDiv{
+  display: flex;
+  flex-direction: column;
+}
+.uploadFileDiv button {
+  padding: 2% 0%;
+  width: 33%;
+  margin: 4% auto;
+  /* margin: 2%; */
 }

@@ -48,6 +48,7 @@ const CompanyAccUserDash = () => {
     const {provider , account , contract } = context;
     const handleSubmit = async (e) => {
       e.preventDefault();
+      console.log("insdie the handle Submit")
       console.log(provider , account , contract);
       if (file) { 
         try {
@@ -55,7 +56,8 @@ const CompanyAccUserDash = () => {
           const signer = provider.getSigner();
           const address = await signer.getAddress();
           const tx= await signer.sendTransaction({
-            to: "0xb8423bbf6356d21EC1ea0B2372c567995cEb5352",
+            to:"0xB6fA2F5d40186F32bA848cd0b834Bb910C3c7E30", 
+            // "0xb8423bbf6356d21EC1ea0B2372c567995cEb5352",
             value: ethers.utils.parseEther("0.0069")
           });
   
@@ -165,7 +167,8 @@ const CompanyAccUserDash = () => {
           if(i.tokenId.toNumber() === Number(certToken) && !check){
             check = true;
             const tx= await signer.sendTransaction({
-                to: "0xb8423bbf6356d21EC1ea0B2372c567995cEb5352",
+                to: "0xB6fA2F5d40186F32bA848cd0b834Bb910C3c7E30",
+                // "0xb8423bbf6356d21EC1ea0B2372c567995cEb5352",
                 value: ethers.utils.parseEther("0.00069")
             });
             var tokenURI = await contract.tokenURI(i.tokenId);
@@ -256,19 +259,24 @@ const CompanyAccUserDash = () => {
                         name="data"
                         onChange={retrieveFile}
                         />
-                        <input type="text" value={receiver}onChange={changeReceiverAddress} placeholder='Enter User Address' />
-                        <span className="textArea">Image: {fileName}</span>
-                        <button type="submit" className="upload" disabled={!file}>
-                        Upload File
-                        </button>
+                        <input type="text" className='form__input' value={receiver}onChange={changeReceiverAddress} placeholder='Enter User Address' />
+                        <label className='form__label' htmlFor="user address">User Address</label>
+                        <div className="uploadFileDiv">
+                            <span className="textArea">Image: {fileName}</span>
+                            <button type="submit" className="upload button-4" disabled={!file}>
+                            Upload File
+                            </button>
+
+                        </div>
                     </form>
                 </div>
             </div>
 
             <div ref={viewCertRef} className="addUserPopupWindow">
-                <label htmlFor="">Certificate ID</label>
+                {/* <label htmlFor="">Certificate ID</label> */}
                 <div className="inputAddUserPopupDiv">
-                    <input value={certToken} className='inpAfterPopup' onChange={handleCertTokenChange} type="text" />
+                    <input placeholder='Certificate ID' value={certToken} className='inpAfterPopup form__input' onChange={handleCertTokenChange} type="text" />
+                    <label className='form__label' htmlFor="">Certificate ID</label>
                 </div>
                 <div className="btnAddUserPopupDiv">
                     <button className='button-4' onClick={viewCertFuncn} >View</button>
@@ -284,6 +292,10 @@ const CompanyAccUserDash = () => {
                 {/* <div className="accountListSearchCompanyDiv">
                     <input type="text" className="companyAccSearchList" /> <button className="accountListSearchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div> */}
+                <div className="selectOptionsDiv">
+                <h1>Select Options</h1>
+
+                </div>
                 <div onClick={handleOnPopupClick} className="accAddUser"><button className='accAddUserBtn button-4' role = "button">Issue Certificate</button></div>
                 <div className="viewCertUser accAddUser"><button onClick={handleOnViewCert} className="viewCertUserBtn button-4">View Certificate</button></div>
 
