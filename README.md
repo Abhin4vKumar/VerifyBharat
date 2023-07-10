@@ -26,7 +26,7 @@
 - It is D-App on [Ethereum](https://www.ethereum.org/).
 - Back-End has Smart Contract 
 - Front-end of our Web-App is made with [React.Js](https://github.com/facebook/create-react-app) and our complete frontend components are available at 
-      https://github.com/Abhin4vKumar/VerifyBharat
+      https://github.com/Abhin4vKumar/VerifyBharat/tree/main/client
 <p align="center">
  <img src="https://github.com/redhairrs/hack/assets/86844932/b669d714-ff2f-4d64-9ff8-da0107d558da">
 </p>
@@ -50,7 +50,7 @@
 
 ### Dashboard
 
- #### Student Dashboard
+ #### Employee Dashboard
  <p align="center">
   <img src="https://github.com/redhairrs/hack/assets/86844932/080e6a9b-920b-42f2-9a69-29853da3ff69">
 </p>   
