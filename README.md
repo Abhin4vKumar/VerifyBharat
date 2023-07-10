@@ -55,16 +55,6 @@
   <img src="https://github.com/redhairrs/hack/assets/86844932/080e6a9b-920b-42f2-9a69-29853da3ff69">
 </p>   
  
-- Student Dashboard have these options :
- 
- - `My Documents`
-   - Students can upload their Certificates themselves but these certificates need to be verified by Institute side ,only then                 certificates will appear in my documents section.
- 
- - `Give Access`
-    - Students can give access to any other institute/organisation to his/her certificates , access is only given for limited time             (24hr)
- 
- - `Change Institute` 
-    - Students can request change of institute , this request is sent to current institute ,Upon approval students institute is changed. 
    
   -------------------------------------
   ## Contributing
