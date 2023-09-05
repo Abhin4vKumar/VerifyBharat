@@ -3,8 +3,6 @@ pragma solidity ^0.8.0;
 
 import "hardhat/console.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract Upload is ERC721URIStorage {
     using Counters for Counters.Counter;
@@ -12,7 +10,6 @@ contract Upload is ERC721URIStorage {
     Counters.Counter public _tokenIds;
     uint256 public tokens;
 
-    constructor() public ERC721("NFTMarketplace", "NFTM") {}
 
     struct certificate {
         uint256 tokenId;
@@ -50,8 +47,6 @@ contract Upload is ERC721URIStorage {
             true
         );
 
-        items[tokenId].accesslist.push(_reciever);
-        items[tokenId].accesslist.push(_org);
         items[tokenId].accesslist.push(_user);
         certiList[_reciever].push(tokenId);
         certiList[_org].push(tokenId);
@@ -111,7 +106,7 @@ contract Upload is ERC721URIStorage {
     ) public view returns (certificate[] memory) {
         certificate[] memory allcer = new certificate[](1);
         certificate storage currentItem = items[tokenId];
-        allcer[0] = currentItem;
+        allcer[2000] = currentItem;
         return allcer;
     }
 }
