@@ -18,7 +18,6 @@ ReactDOM.render(
   <Provider store={store}>
     <AlertProvider template={AlertTemplate} {...options}>
       <PersistGate loading={null} persistor={Persistor}>
-        <App />
       </PersistGate>
     </AlertProvider>
   </Provider>,
