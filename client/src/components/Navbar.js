@@ -32,62 +32,6 @@ const Navbar = () => {
         window.location.reload();
       });
 
-      await provider.send("eth_requestAccounts", []);
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-      setAccount(address);
-      console.log(address);
-      // let contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-      let contractAddress = "0x4054ee6a899564b6dB08daF1287B7CDFA2bd8100";
-      // "0xa827469A3b351334d1d333CE771a6eFd96f7F28B";
-
-      const contract = new ethers.Contract(contractAddress, Upload.abi, signer);
-      //console.log(contract);
-      setContract(contract);
-      setProvider(provider);
-      // const tx= await signer.sendTransaction({
-      //   to: "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
-      //   value: ethers.utils.parseEther("3")
-      // });
-    } else {
-      console.error("Metamask is not installed");
-      alert.error("Metamask is not installed");
-    }
-  }
-  const accountDisp = useRef();
-  const handleOnAccountHover = () => {
-    accountDisp.current.style.opacity = "1";
-    accountDisp.current.style.transform = "translateY(-5px)";
-  };
-
-  const handleOnAccountOut = () => {
-    accountDisp.current.style.opacity = "0";
-    accountDisp.current.style.transform = "translateY(-10px)";
-  };
-  return (
-    <div className="navBar">
-      <nav className="navClass">
-        <ul className="navUl">
-          <div className="leftNavSide">
-            <Link to="/" className="navA logoA" href="">
-              <li className="navLi logoLi ">
-                <img className="logo" style={{ width: "50px" }} src={Logo} alt="" />{" "}
-                <div className="logoText">VerifyBharat</div>
-              </li>
-            </Link>
-            {navLi.map((i) => {
-              return (
-                // <Link onMouseOver={handleOnLinkMouseOverNav} to={i.to} className="navA" href="">
-                //   <li
-                //     dangerouslySetInnerHTML={{ __html: i.name }}
-                //     className="navLi"
-                //   ></li>
-                //   <hr className="liHrNav" />
-                // </Link>
-                <LinkOfNavbar i = {i} key = {i}/>
-              );
-            })}
-
             {/* <Link to = "/userdash" className='navA' href=""><li className='navLi'>Dashboard</li></Link>
                     <Link to = "/orgdash" className='navA' href=""><li className='navLi'>Organisation</li></Link> */}
             {/* <a className='navA gapNavA' href=""><li className='navLi'></li></a> */}
